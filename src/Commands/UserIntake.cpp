@@ -31,21 +31,21 @@ void UserIntake::Initialize() {
 // Called repeatedly when this Command is scheduled to run
 void UserIntake::Execute() {
 	//Robot::roller->Spit();
-	Robot::roller->Suck();
+	Robot::roller->Suck(); //spins roller while nothing is detected
 }
 
 // Make this return true when this Command no longer needs to run execute()
 bool UserIntake::IsFinished() {
-    return (Robot::roller->DigiInput() == true);
+    return (Robot::roller->DigiInput() == true); //when laser is interrupted it will end
 }
 
 // Called once after isFinished returns true
 void UserIntake::End() {
-	Robot::roller->Stop();
+	Robot::roller->Stop(); //what is called when DigiInput() == true
 }
 
 // Called when another command which requires one or more of the same
 // subsystems is scheduled to run
 void UserIntake::Interrupted() {
-	End();
+	End(); //safety measure
 }
