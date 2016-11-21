@@ -40,11 +40,11 @@ bool Intake::IsFinished() {
 
 // Called once after isFinished returns true
 void Intake::End() {
-	Robot::roller->Stop();
+	Robot::roller->Stop(); //stops the roller
 }
 
 // Called when another command which requires one or more of the same
 // subsystems is scheduled to run
 void Intake::Interrupted() {
-	End();
+	End(); //safety measure
 }
