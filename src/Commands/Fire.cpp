@@ -25,7 +25,7 @@ Fire::Fire(): Command() {
 
 // Called just before this Command runs the first time
 void Fire::Initialize() {
-	//shoot the catapult
+	//shoot the catapult by calling function Shoot
 	Robot::catapult->Shoot();
 }
 
@@ -37,7 +37,7 @@ void Fire::Execute() {
 // Make this return true when this Command no longer needs to run execute()
 bool Fire::IsFinished() {
 	//return Robot::catapult->GetAverageVoltage() > 4.000;
-	return IsTimedOut();
+	return IsTimedOut(); //stop the code after .2 seconds
 }
 
 // Called once after isFinished returns true
@@ -49,5 +49,5 @@ void Fire::End()
 // Called when another command which requires one or more of the same
 // subsystems is scheduled to run
 void Fire::Interrupted() {
-	End();
+	End(); //safety measure in case of code malfunctions/contradictions
 }
