@@ -24,7 +24,7 @@ Unbrake::Unbrake(): Command() {
 
 // Called just before this Command runs the first time
 void Unbrake::Initialize() {
-	Robot::drivetrain->NotEndGame();
+	Robot::drivetrain->NotEndGame(); //stops the brake 
 }
 
 // Called repeatedly when this Command is scheduled to run
@@ -34,7 +34,7 @@ void Unbrake::Execute() {
 
 // Make this return true when this Command no longer needs to run execute()
 bool Unbrake::IsFinished() {
-    return IsTimedOut();
+    return IsTimedOut(); //ends the running of the class/function
 }
 
 // Called once after isFinished returns true
@@ -45,5 +45,5 @@ void Unbrake::End() {
 // Called when another command which requires one or more of the same
 // subsystems is scheduled to run
 void Unbrake::Interrupted() {
-	End();
+	End(); //safety measure
 }
