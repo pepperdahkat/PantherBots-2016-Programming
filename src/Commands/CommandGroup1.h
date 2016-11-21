@@ -12,7 +12,7 @@
 
 #ifndef COMMAND_GROUP_1_H
 #define COMMAND_GROUP_1_H
-
+// includes .h files of SpyAuto, Robot, and WristDown
 #include "Commands/CommandGroup.h"
 #include "../Robot.h"
 #include "SpyAuto.h"
