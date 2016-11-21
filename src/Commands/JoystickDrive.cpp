@@ -30,9 +30,9 @@ void JoystickDrive::Initialize() {
 
 // Called repeatedly when this Command is scheduled to run
 void JoystickDrive::Execute() {
-	std::shared_ptr<Joystick> DriveStick = Robot::oi->getJoy();
+	std::shared_ptr<Joystick> DriveStick = Robot::oi->getJoy(); //initializes the joystick 'DriveStick' to the getJoy() 
 
-	Robot::drivetrain->JoyDrive(DriveStick);
+	Robot::drivetrain->JoyDrive(DriveStick); //passes the drive the joystick
 }
 
 // Make this return true when this Command no longer needs to run execute()
@@ -48,5 +48,5 @@ void JoystickDrive::End() {
 // Called when another command which requires one or more of the same
 // subsystems is scheduled to run
 void JoystickDrive::Interrupted() {
-
+	End(); //safety measure
 }
